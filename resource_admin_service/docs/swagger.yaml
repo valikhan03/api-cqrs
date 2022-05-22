@@ -1,0 +1,103 @@
+definitions:
+  models.ErrorResponse:
+    properties:
+      error:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  models.SuccessResponse:
+    properties:
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+host: localhost:8077
+info:
+  contact: {}
+  description: This service is created for resource admins so they could create their
+    content
+  title: Resource Admin Service API
+paths:
+  /:
+    post:
+      consumes:
+      - application/json
+      description: The endpoint for creating new Resource-objects in service DBs
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create Resource Handler
+      tags:
+      - resource-service
+  /{id}:
+    delete:
+      consumes:
+      - text/plain
+      description: The endpoint to delete Resource from DB
+      parameters:
+      - description: Resource ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete Resource Handler
+      tags:
+      - resource-service
+    post:
+      consumes:
+      - application/json
+      description: The endpoint for updating existing resources
+      parameters:
+      - description: Resource ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update Resource Handler
+      tags:
+      - resource-service
+swagger: "2.0"

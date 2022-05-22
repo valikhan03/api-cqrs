@@ -1,0 +1,13 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make.exe: Entering directory 'c:/playground/api-cqrs/resource_admin_service'
+ 
+make.exe: *** No rule to make target 'swag', needed by 'swagger'.
+
+make.exe: *** No rule to make target 'init', needed by 'swagger'.
+
+make.exe: *** No rule to make target '-d', needed by 'swagger'.
+
+make.exe: *** No rule to make target '--pd', needed by 'swagger'.
+
+make.exe: Leaving directory 'c:/playground/api-cqrs/resource_admin_service'
+ 
