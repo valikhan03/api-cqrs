@@ -1,1 +1,2 @@
-swagger: swag init -d cmd --pd
+gen-swagger: 
+	swag init -d cmd --pd

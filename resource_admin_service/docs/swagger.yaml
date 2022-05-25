@@ -29,7 +29,35 @@ paths:
       - application/json
       responses:
         "201":
-          description: Created
+          description: created
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create Resource Handler
+      tags:
+      - resource-service
+    put:
+      consumes:
+      - application/json
+      description: The endpoint for updating existing resources
+      parameters:
+      - description: Resource ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
           schema:
             $ref: '#/definitions/models.SuccessResponse'
         "400":
@@ -40,7 +68,7 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/models.ErrorResponse'
-      summary: Create Resource Handler
+      summary: Update Resource Handler
       tags:
       - resource-service
   /{id}:
@@ -70,34 +98,6 @@ paths:
           schema:
             $ref: '#/definitions/models.ErrorResponse'
       summary: Delete Resource Handler
-      tags:
-      - resource-service
-    post:
-      consumes:
-      - application/json
-      description: The endpoint for updating existing resources
-      parameters:
-      - description: Resource ID
-        in: path
-        name: id
-        required: true
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/models.SuccessResponse'
-        "400":
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/models.ErrorResponse'
-        "500":
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/models.ErrorResponse'
-      summary: Update Resource Handler
       tags:
       - resource-service
 swagger: "2.0"

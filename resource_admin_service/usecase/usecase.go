@@ -2,7 +2,7 @@ package usecase
 
 import (
 	"log"
-	"resource_admin/models"
+	"resource_admin_service/models"
 	"time"
 
 	"github.com/Shopify/sarama"
@@ -10,7 +10,7 @@ import (
 )
 
 type UseCase struct {
-	logger *log.Logger
+	logger     *log.Logger
 	repository RepositoryInterface
 	producer   sarama.SyncProducer
 }
@@ -18,7 +18,7 @@ type UseCase struct {
 func NewUseCase(rep RepositoryInterface, prod sarama.SyncProducer) *UseCase {
 	return &UseCase{
 		repository: rep,
-		producer: prod,
+		producer:   prod,
 	}
 }
 
@@ -38,11 +38,11 @@ func (uc *UseCase) CreateResource(newresource *models.NewResource) error {
 	}
 
 	err := uc.repository.CreateResource(&resource)
-	if err != nil{
+	if err != nil {
 		return err
 	}
 	event, err := models.NewEvent("CREATE", resource).Encode()
-	if err != nil{
+	if err != nil {
 		uc.logger.Println(err)
 	}
 	uc.sendEvent("CREATE", event)
@@ -50,12 +50,12 @@ func (uc *UseCase) CreateResource(newresource *models.NewResource) error {
 }
 
 func (uc *UseCase) UpdateResource(resource *models.Resource) error {
-	err :=  uc.repository.UpdateResource(resource)
-	if err != nil{
+	err := uc.repository.UpdateResource(resource)
+	if err != nil {
 		return err
 	}
 	event, err := models.NewEvent("UPDATE", *resource).Encode()
-	if err != nil{
+	if err != nil {
 		uc.logger.Println(err)
 	}
 	uc.sendEvent("UPDATE", event)
@@ -63,13 +63,13 @@ func (uc *UseCase) UpdateResource(resource *models.Resource) error {
 }
 
 func (uc *UseCase) DeleteResource(id string) error {
-	err :=  uc.repository.DeleteResource(id)
-	if err != nil{
+	err := uc.repository.DeleteResource(id)
+	if err != nil {
 		return err
 	}
 	resource := models.Resource{ID: id}
 	event, err := models.NewEvent("CREATE", resource).Encode()
-	if err != nil{
+	if err != nil {
 		uc.logger.Println(err)
 	}
 	uc.sendEvent("CREATE", event)

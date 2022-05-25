@@ -1,214 +1,285 @@
-make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make.exe: *** No rule to make target 'all'.  Stop.
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
 
-# GNU Make 4.2
-This program is built by Equation Solution <http://www.Equation.com>.
-# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri May 20 18:49:46 2022
+# Make data base, printed on Wed May 25 11:38:48 2022
 
 # Variables
 
-# 'override' directive
-GNUMAKEFLAGS := 
-# automatic
-<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
-# automatic
-?F = $(notdir $?)
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# environment
+SSH_AGENT_LAUNCHER = gnome-keyring
+# environment
+SNAP_INSTANCE_KEY = 
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8f371f23-79d1-496f-a501-0f3bacea8723.sock
+# environment
+LC_NAME = kk_KZ.UTF-8
+# environment
+LC_NUMERIC = kk_KZ.UTF-8
+# environment
+VSCODE_CWD = /home/valikhan
+# environment
+LC_ADDRESS = kk_KZ.UTF-8
 # default
-.SHELLFLAGS := -c
-# makefile
-MAKEFLAGS = pqrR
+MAKE_COMMAND := make
 # environment
-VSCODE_LOG_NATIVE = false
+QT_ACCESSIBILITY = 1
 # automatic
-?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
-# automatic
-@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+@D = $(patsubst %/,%,$(dir $@))
 # environment
-HOMEDRIVE = C:
-# automatic
-@F = $(notdir $@)
-# automatic
-^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
-# makefile
-CURDIR := c:/playground/api-cqrs/resource_admin_service
+SNAP_INSTANCE_NAME = code
+# environment
+GDK_PIXBUF_MODULEDIR = /snap/code/97/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
-SHELL := sh.exe
+.VARIABLES := 
 # environment
-WINDIR = C:\Windows
+PWD = /home/valikhan/projects/api-cqrs/resource_admin_service
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"ru","availableLanguages":{},"_languagePackSupport":true}
-# environment
-PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
-# makefile (from 'makefile', line 1)
-MAKEFILE_LIST :=  Makefile
-# environment
-TMP = C:\Users\V0654~1.YEL\AppData\Local\Temp
-# environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
-# environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
-PROGRAMW6432 = C:\Program Files
-# environment
-PROGRAMDATA = C:\ProgramData
-# environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-ac345e57-cdce-4cb0-8094-1e2900198be8-sock
-# environment
-VSCODE_CWD = C:\Users\v.yeltayev\AppData\Local\Programs\Microsoft VS Code
-# environment
-GOPROXY = https://proxy.golang.org,direct
-# default
-MAKE_HOST := x86_64-w64-mingw32
-# environment
-PATH = C:\oracle_19c\WINDOWS.X64_193000_db_home\bin;c:\tdm-gcc-64\bin;c:\tdm-gcc-64\libexec\gcc\x86_64-w64-mingw32\9.2.0;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\protoc\bin;C:\Program Files\Go\bin;C:\kafka\bin;C:\Program Files\PostgreSQL\14\bin;C:\Program Files\oracle_db\bin;;C:\ProgramData\chocolatey\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\v.yeltayev\AppData\Local\Microsoft\WindowsApps;C:\Users\v.yeltayev\AppData\Local\Programs\Microsoft VS Code\bin;C:\protoc\bin;C:\Users\v.yeltayev\go\bin;C:\Program Files\curl\bin;C:\Program Files\elasticsearch-8.1.0\bin;C:\kafka\bin;C:\Program Files\PostgreSQL\14\bin;C:\Program Files\oracle_db\bin;
-# environment
-COMMONPROGRAMW6432 = C:\Program Files\Common Files
-# environment
-CHOCOLATEYLASTPATHUPDATE = 132967342094005410
-# environment
-PROCESSOR_ARCHITECTURE = AMD64
-# environment
-USERPROFILE = C:\Users\v.yeltayev
-# environment
-CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
-# environment
-ALLUSERSPROFILE = C:\ProgramData
-# environment
-GOPATH = C:\Users\v.yeltayev\go
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
 # environment
 VSCODE_LOG_STACK = false
-# environment
-NUMBER_OF_PROCESSORS = 4
-# environment
-ELECTRON_RUN_AS_NODE = 1
-# default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync load
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_12672_XMLHROUVQLHEWLZM
-# environment
-VSCODE_PIPE_LOGGING = true
-# environment
-COMPUTERNAME = NB000000148-AS
-# environment
-EQ_LIBRARY_PATH = c:\tdm-gcc-64\x86_64-w64-mingw32\lib
-# environment
-PROGRAMFILES = C:\Program Files
-# default
-.LOADED := 
-# environment
-USERDNSDOMAIN = CORP.P-S.KZ
-# environment
-DRIVERDATA = C:\Windows\System32\Drivers\DriverData
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = undefined
-# environment
-USERNAME = v.yeltayev
-# environment
-PUBLIC = C:\Users\Public
-# environment
-GOMODCACHE = C:\Users\v.yeltayev\go\pkg\mod
-# environment
-VSCODE_CODE_CACHE_PATH = C:\Users\v.yeltayev\AppData\Roaming\Code\CachedData\da15b6fd3ef856477bf6f4fb29ba1b7af717770d
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# environment
-COMMONPROGRAMFILES = C:\Program Files\Common Files
-# environment
-LOGONSERVER = \\ALM-DC3
-# environment
-VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# environment
-USERDOMAIN = CORP
-# environment
-MAKELEVEL := 0
-# default
-MAKE = $(MAKE_COMMAND)
-# default
-MAKECMDGOALS := all
-# default
-MAKE_VERSION := 4.2
-# makefile
-.DEFAULT_GOAL := swagger
-# environment
-PROGRAMFILES(X86) = C:\Program Files (x86)
-# automatic
-%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
-# environment
-LOCALAPPDATA = C:\Users\v.yeltayev\AppData\Local
-# environment
-PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
-# default
-MAKE_COMMAND := make.exe
-# default
-.VARIABLES := 
-# automatic
-*F = $(notdir $*)
-#  
-environment
-PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
-# environment
-OS = Windows_NT
-# environment
-VSCODE_IPC_HOOK = \\.\pipe\d629f270b1eecc65659e6cbd808d31b9-1.67.1-main-sock
-# environment
-HOMEPATH = \Users\v.yeltayev
-# environment
-COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
-# environment
-PROMPT = $P$G
-# environment
-MFLAGS = -pqrR
-# automatic
-*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
-# environment
-SYSTEMROOT = C:\Windows
-# automatic
-+D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
-# automatic
-+F = $(notdir $+)
-# environment
-APPDATA = C:\Users\v.yeltayev\AppData\Roaming
-# environment
-TEMP = C:\Users\V0654~1.YEL\AppData\Local\Temp
-# environment
-COMSPEC = C:\Windows\system32\cmd.exe
-# default
-MAKEFILES := 
-# environment
-ERLANG_HOME = C:\Program Files\erl-24.0
-# automatic
-<F = $(notdir $<)
-# environment
-LC_ALL = C
-# automatic
-^F = $(notdir $^)
-# default
-SUFFIXES := 
-# environment
-SYSTEMDRIVE = C:
-# environment
-SESSIONNAME = Console
-# environment
-PROCESSOR_REVISION = 8e09
-# default
-.RECIPEPREFIX := 
+VSCODE_CODE_CACHE_PATH = /home/valikhan/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
 LANG = C
 # environment
-PROCESSOR_LEVEL = 6
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.BOQCM1
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/valikhan/projects/api-cqrs/resource_admin_service
 # environment
-VSCODE_PID = 12672
+VSCODE_PIPE_LOGGING = true
 # environment
-USERDOMAIN_ROAMINGPROFILE = CORP
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# environment
+SNAP_REEXEC = 
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_PID = 3724
+# environment
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
+# environment
+SESSION_MANAGER = local/valikhan-VivoBook-ASUSLaptop-X509JP-X509JP:@/tmp/.ICE-unix/2257,unix/valikhan-VivoBook-ASUSLaptop-X509JP-X509JP:/tmp/.ICE-unix/2257
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+XMODIFIERS = @im=ibus
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+SHLVL = 0
+# environment
+MAKELEVEL := 0
+# environment
+IM_CONFIG_CHECK_ENV = 1
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+SNAP_COOKIE = mZz4FHmV2_T6cfD61dDRNGhkUvAK5jUUKgrBfKO26BZZSYII4okx
+# environment
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+# default
+MAKEFILES := 
+# environment
+LANGUAGE = en_US:en
+# environment
+LC_MONETARY = kk_KZ.UTF-8
+# automatic
+^F = $(notdir $^)
+# environment
+SNAP_USER_COMMON = /home/valikhan/snap/code/common
+# environment
+LC_TIME = kk_KZ.UTF-8
+# environment
+SNAP = /snap/code/97
+# environment
+INVOCATION_ID = 3074dcb249304a4085a91fbb3ee049fa
+# environment
+SNAP_REVISION = 97
+# environment
+SNAP_REAL_HOME = /home/valikhan
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+USERNAME = valikhan
+# environment
+GNOME_SETUP_DISPLAY = :1
+# environment
+LC_TELEPHONE = kk_KZ.UTF-8
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# automatic
+?F = $(notdir $?)
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# environment
+LS_COLORS = 
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = valikhan
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+# environment
+SNAP_ARCH = amd64
+# makefile
+.DEFAULT_GOAL := gen-swagger
+# environment
+SYSTEMD_EXEC_PID = 2286
+# environment
+DISPLAY = :0
+# environment
+USER = valikhan
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+DISABLE_WAYLAND = 1
+# environment
+SNAP_DATA = /var/snap/code/97
+# environment
+SNAP_CONTEXT = mZz4FHmV2_T6cfD61dDRNGhkUvAK5jUUKgrBfKO26BZZSYII4okx
+# environment
+MANAGERPID = 2090
+# environment
+LC_MEASUREMENT = kk_KZ.UTF-8
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3678
+# environment
+_ = /snap/code/97/usr/share/code/code
+# environment
+LC_PAPER = kk_KZ.UTF-8
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+GDK_PIXBUF_MODULE_FILE = /home/valikhan/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+# environment
+JOURNAL_STREAM = 8:34448
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/valikhan
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-8aa06740-1.67.2-main.sock
+# environment
+SNAP_NAME = code
+# environment
+GSETTINGS_SCHEMA_DIR = /snap/code/97/usr/share/glib-2.0/schemas
+# environment
+IM_CONFIG_PHASE = 1
+# environment
+PAPERSIZE = a4
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# environment
+SNAP_VERSION = c3511e6c
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+SNAP_COMMON = /var/snap/code/common
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# environment
+SNAP_USER_DATA = /home/valikhan/snap/code/97
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+GDMSESSION = ubuntu
+# environment
+LC_IDENTIFICATION = kk_KZ.UTF-8
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=97/1024=9%, Rehash=0, Collisions=17/118=14%
+# Load=133/1024=13%, Rehash=0, Collisions=6/163=4%
 
 # Pattern-specific Variable Values
 
@@ -216,9 +287,9 @@ USERDOMAIN_ROAMINGPROFILE = CORP
 
 # Directories
 
-# . (key c:/playground/api-cqrs/resource_admin_service, mtime 1652720280ll): 16 files, no impossibilities.
+# . (device 2055, inode 656947): 15 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -227,11 +298,12 @@ USERDOMAIN_ROAMINGPROFILE = CORP
 # Files
 
 # Not a target:
-all:
-#  Command line target.
+Makefile:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+ 
+#  Last modified 2022-05-24 15:57:07.70574652
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -239,62 +311,34 @@ all:
 #  Modification time never checked.
 #  File has not been updated.
 
-swagger: swag init -d cmd --pd
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 # Not a target:
-Makefile:
+all:
+#  Command line target.
 #  Implicit rule search has been done.
-#  Last modified 2022-05-16 22:57:09
-#  File has been updated.
-#  Successfully updated.
+#  File does not exist.
+#  File has not been updated.
 
-# Not a target:
-cmd:
+gen-swagger:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-init:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
--d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-swag:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
---pd:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 2):
+	swag init -d cmd --pd
 
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=2/25=8%
+# Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 157 B / avg = 6 B
-# current buf: size = 8162 B / used = 157 B / count = 24 / avg = 6 B
+# strcache buffers: 1 (0) / strings = 21 / storage = 172 B / avg = 8 B
+# current buf: size = 8162 B / used = 172 B / count = 21 / avg = 8 B
 
-# strcache performance: lookups = 29 / hit rate = 17%
+# strcache performance: lookups = 26 / hit rate = 19%
 # hash-table stats:
-# Load=24/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Fri May 20 18:49:46 2022
+# Load=21/8192=0%, Rehash=0, Collisions=0/26=0%
+# Finished Make data base on Wed May 25 11:38:48 2022
 
  

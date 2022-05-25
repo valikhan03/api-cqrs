@@ -4,7 +4,7 @@ import (
 	"errors"
 	"log"
 	"net/http"
-	"resource_admin/models"
+	"resource_admin_service/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -68,9 +68,8 @@ func (h *Handler) CreateResourceHandler(c *gin.Context) {
 // @Success 200 {object} models.SuccessResponse
 // @Failure 400 {object} models.ErrorResponse
 // @Failure 500 {object} models.ErrorResponse
-// @Router /{id} [post]
+// @Router / [put]
 func (h *Handler) UpdateResourceHandler(c *gin.Context) {
-	c.Param("id")
 	var resource models.Resource
 	err := c.BindJSON(&resource)
 	if err != nil {
@@ -86,6 +85,7 @@ func (h *Handler) UpdateResourceHandler(c *gin.Context) {
 		return
 	}
 
+	
 	c.Status(http.StatusOK)
 }
 
@@ -103,7 +103,7 @@ func (h *Handler) UpdateResourceHandler(c *gin.Context) {
 // @Router /{id} [delete]
 func (h *Handler) DeleteResourceHandler(c *gin.Context) {
 	id := c.Param("id")
-	if id == "" {
+	if len(id) == 0 {
 		//log
 		c.AbortWithError(http.StatusBadRequest, errors.New("empty id"))
 		return
