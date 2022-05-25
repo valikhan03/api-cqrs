@@ -47,14 +47,10 @@ func (s *Service) GetResourceByID(id string) (*models.Resource, error){
 	return resource, nil
 }
 
-func (s *Service) SearchResourcesByFilter(filter models.Filter) ([]*models.Resource, error){
+func (s *Service) SearchResourcesByFilter(filter map[string]interface{}) ([]*models.Resource, error){
 	var buf bytes.Buffer
 	query := map[string]interface{}{
-		"query":map[string]interface{}{
-			"title":filter.Title,
-			"Author":filter.Author,
-			"Content":filter.Content,
-		},
+		"query":filter,
 	}
 	if err := json.NewEncoder(&buf).Encode(query); err != nil{
 		return nil, err

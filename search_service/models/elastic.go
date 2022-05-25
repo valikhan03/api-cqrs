@@ -11,6 +11,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/joho/godotenv"
 	"github.com/elastic/go-elasticsearch/v8"
 	"github.com/elastic/go-elasticsearch/v8/esapi"
 )
@@ -29,6 +30,10 @@ func NewESClient(addrs []string) (*elasticsearch.Client, error) {
 }
 
 func NewElastic() *Elastic{
+	err := godotenv.Load()
+	if err != nil{
+		log.Fatal(err)
+	}
 	esclient, err := NewESClient([]string{os.Getenv("ES_CONN_ADDR")})
 	if err != nil{
 		log.Fatal(err)

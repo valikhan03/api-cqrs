@@ -13,6 +13,10 @@ type KafkaConsumer struct{
 	logger *log.Logger
 }
 
+func NewKafkaConsumer() *KafkaConsumer{
+	return &KafkaConsumer{}
+}
+
 func (kc *KafkaConsumer) Consume() {
 	configs := sarama.NewConfig()
 	configs.Consumer.Return.Errors = true
@@ -36,7 +40,7 @@ func (kc *KafkaConsumer) Consume() {
 	for {
 		err := consumerGroup.Consume(context.Background(), []string{}, handler)
 		if err != nil{
-
+			kc.logger.Println(err)
 		}
 	}
 }
