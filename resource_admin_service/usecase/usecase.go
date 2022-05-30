@@ -5,20 +5,21 @@ import (
 	"resource_admin_service/models"
 	"time"
 
-	"github.com/Shopify/sarama"
 	"github.com/google/uuid"
 )
 
 type UseCase struct {
 	logger     *log.Logger
 	repository RepositoryInterface
-	producer   sarama.SyncProducer
+	eventChan  chan<- *models.Event
 }
 
-func NewUseCase(rep RepositoryInterface, prod sarama.SyncProducer) *UseCase {
+func NewUseCase(repository RepositoryInterface, eventChan chan *models.Event, logger *log.Logger) *UseCase {
 	return &UseCase{
-		repository: rep,
-		producer:   prod,
+		repository: repository,
+		logger: logger,
+		eventChan: eventChan,
+
 	}
 }
 
@@ -34,18 +35,16 @@ func (uc *UseCase) CreateResource(newresource *models.NewResource) error {
 		Title:     newresource.Title,
 		Author:    newresource.Author,
 		Content:   newresource.Content,
-		CreatedAt: time.Now(),
+		CreatedAt: time.Now().UTC(),
 	}
 
 	err := uc.repository.CreateResource(&resource)
 	if err != nil {
 		return err
 	}
-	event, err := models.NewEvent("CREATE", resource).Encode()
-	if err != nil {
-		uc.logger.Println(err)
-	}
-	uc.sendEvent("CREATE", event)
+	event := models.NewEvent("CREATE", resource)
+
+	uc.eventChan <- event
 	return nil
 }
 
@@ -54,11 +53,9 @@ func (uc *UseCase) UpdateResource(resource *models.Resource) error {
 	if err != nil {
 		return err
 	}
-	event, err := models.NewEvent("UPDATE", *resource).Encode()
-	if err != nil {
-		uc.logger.Println(err)
-	}
-	uc.sendEvent("UPDATE", event)
+	event := models.NewEvent("UPDATE", *resource)
+	
+	uc.eventChan <- event
 	return nil
 }
 
@@ -68,18 +65,8 @@ func (uc *UseCase) DeleteResource(id string) error {
 		return err
 	}
 	resource := models.Resource{ID: id}
-	event, err := models.NewEvent("CREATE", resource).Encode()
-	if err != nil {
-		uc.logger.Println(err)
-	}
-	uc.sendEvent("CREATE", event)
-	return nil
-}
+	event := models.NewEvent("DELETE", resource)
+	uc.eventChan <- event
 
-func (uc *UseCase) sendEvent(topic string, event []byte) {
-	msg := sarama.ProducerMessage{
-		Topic: topic,
-		Value: sarama.ByteEncoder(event),
-	}
-	uc.producer.SendMessage(&msg)
+	return nil
 }

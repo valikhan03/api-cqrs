@@ -1,2 +1,3 @@
 .env
 .vscode
+usecase/usecase_test.go
