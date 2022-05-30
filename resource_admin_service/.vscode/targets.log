@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 30 12:36:18 2022
+# Make data base, printed on Mon May 30 16:58:54 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-12b2fd71-8661-4f5a-a18b-968a2d683a42.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-017fac3e-a4e0-4ecc-b80a-1173b29e3bb5.sock
 # environment
 LC_NAME = kk_KZ.UTF-8
 # environment
@@ -38,8 +38,6 @@ LC_ADDRESS = kk_KZ.UTF-8
 MAKE_COMMAND := make
 # environment
 QT_ACCESSIBILITY = 1
-# environment
-GOPATH = /home/valikhan/go
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -67,7 +65,7 @@ VSCODE_CODE_CACHE_PATH = /home/valikhan/.config/Code/CachedData/c3511e6c69bb3901
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.3KW7M1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.PCX4M1
 # default
 .LOADED := 
 # default
@@ -107,7 +105,7 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 3470
+VSCODE_PID = 3030
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -115,7 +113,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/valikhan:@/tmp/.ICE-unix/2285,unix/valikhan:/tmp/.ICE-unix/2285
+SESSION_MANAGER = local/valikhan:@/tmp/.ICE-unix/2114,unix/valikhan:/tmp/.ICE-unix/2114
 # automatic
 *F = $(notdir $*)
 # environment
@@ -149,7 +147,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = mZz4FHmV2_T6cfD61dDRNGhkUvAK5jUUKgrBfKO26BZZSYII4okx
 # environment
-PATH = /usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 # default
 MAKEFILES := 
 # environment
@@ -165,7 +163,7 @@ LC_TIME = kk_KZ.UTF-8
 # environment
 SNAP = /snap/code/97
 # environment
-INVOCATION_ID = 16130f5732844f67a436734f4e77cb8b
+INVOCATION_ID = 75400fce64ab4689b13451b05a41e5c2
 # environment
 SNAP_REVISION = 97
 # environment
@@ -203,7 +201,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := gen-swagger
 # environment
-SYSTEMD_EXEC_PID = 2322
+SYSTEMD_EXEC_PID = 2151
 # environment
 DISPLAY = :0
 # environment
@@ -219,11 +217,11 @@ SNAP_DATA = /var/snap/code/97
 # environment
 SNAP_CONTEXT = mZz4FHmV2_T6cfD61dDRNGhkUvAK5jUUKgrBfKO26BZZSYII4okx
 # environment
-MANAGERPID = 2131
+MANAGERPID = 1954
 # environment
 LC_MEASUREMENT = kk_KZ.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3415
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2983
 # environment
 _ = /snap/code/97/usr/share/code/code
 # environment
@@ -233,9 +231,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/valikhan/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:36176
-# environment
-GOMODCACHE = /home/valikhan/go/pkg/mod
+JOURNAL_STREAM = 8:34315
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -256,8 +252,6 @@ GSETTINGS_SCHEMA_DIR = /snap/code/97/usr/share/glib-2.0/schemas
 IM_CONFIG_PHASE = 1
 # environment
 PAPERSIZE = a4
-# environment
-GOPROXY = https://proxy.golang.org,direct
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -285,8 +279,7 @@ LC_IDENTIFICATION = kk_KZ.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
- 
-# Load=136/1024=13%, Rehash=0, Collisions=7/166=4%
+# Load=133/1024=13%, Rehash=0, Collisions=6/163=4%
 
 # Pattern-specific Variable Values
 
@@ -294,9 +287,10 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 2055, inode 656947): 18 files, no impossibilities.
+ 
+# . (device 2055, inode 656947): 21 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 21 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -339,12 +333,12 @@ gen-swagger:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 188 B / avg = 7 B
-# current buf: size = 8162 B / used = 188 B / count = 24 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 220 B / avg = 8 B
+# current buf: size = 8162 B / used = 220 B / count = 27 / avg = 8 B
 
-# strcache performance: lookups = 29 / hit rate = 17%
+# strcache performance: lookups = 32 / hit rate = 15%
 # hash-table stats:
-# Load=24/8192=0%, Rehash=0, Collisions=0/29=0%
-# Finished Make data base on Mon May 30 12:36:18 2022
+# Load=27/8192=0%, Rehash=0, Collisions=0/32=0%
+# Finished Make data base on Mon May 30 16:58:54 2022
 
  
