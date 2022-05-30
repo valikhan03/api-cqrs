@@ -37,7 +37,7 @@ func main() {
 
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	kafka := models.NewKafkaConsumer()
+	kafka := models.NewKafkaConsumer(nil, models.NewConsumerGroupHandler([]string{os.Getenv("")}, os.Getenv(""), 3, nil))
 	go func(){
 		kafka.Consume()
 	}()

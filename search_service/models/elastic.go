@@ -7,8 +7,6 @@ import (
 	"errors"
 	"log"
 	"net/http"
-	"os"
-	"strconv"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -29,24 +27,24 @@ func NewESClient(addrs []string) (*elasticsearch.Client, error) {
 	})
 }
 
-func NewElastic() *Elastic{
+func NewElastic(addr []string, index string, timeout int64) *Elastic{
 	err := godotenv.Load()
 	if err != nil{
 		log.Fatal(err)
 	}
-	esclient, err := NewESClient([]string{os.Getenv("ES_CONN_ADDR")})
+	esclient, err := NewESClient(addr)
 	if err != nil{
 		log.Fatal(err)
 	}
 
-	timeout, err := strconv.Atoi(os.Getenv("ES_REQUEST_TIMEOUT_SEC"))
+	
 	if err != nil{
 		log.Fatal(err)
 	}
 
 	return &Elastic{
 		client: esclient,
-		index: os.Getenv("ES_INDEX"),
+		index: index,
 		timeout: time.Duration(timeout) * time.Second,
 	}
 }

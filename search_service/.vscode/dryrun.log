@@ -1,0 +1,4 @@
+make: Entering directory '/home/valikhan/projects/api-cqrs/search_service'
+swag init -d cmd --pd
+make: Leaving directory '/home/valikhan/projects/api-cqrs/search_service'
+ 

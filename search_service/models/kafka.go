@@ -11,10 +11,14 @@ import (
 
 type KafkaConsumer struct{
 	logger *log.Logger
+	handler *ConsumerGroupHandler
 }
 
-func NewKafkaConsumer() *KafkaConsumer{
-	return &KafkaConsumer{}
+func NewKafkaConsumer(logger *log.Logger, handler *ConsumerGroupHandler) *KafkaConsumer{
+	return &KafkaConsumer{
+		logger: logger,
+		handler: handler,
+	}
 }
 
 func (kc *KafkaConsumer) Consume() {
@@ -33,12 +37,8 @@ func (kc *KafkaConsumer) Consume() {
 		}
 	}()
 
-	handler := &ConsumerGroupHandler{
-		logger: kc.logger,
-		elatic: NewElastic(),
-	}
 	for {
-		err := consumerGroup.Consume(context.Background(), []string{}, handler)
+		err := consumerGroup.Consume(context.Background(), []string{}, kc.handler)
 		if err != nil{
 			kc.logger.Println(err)
 		}
@@ -48,6 +48,13 @@ func (kc *KafkaConsumer) Consume() {
 type ConsumerGroupHandler struct{
 	logger *log.Logger
 	elatic *Elastic
+}
+
+func NewConsumerGroupHandler(addr []string, index string, timeout int64, logger *log.Logger) *ConsumerGroupHandler{
+	return &ConsumerGroupHandler{
+		elatic: NewElastic(addr, index, timeout),
+		logger: logger,
+	}
 }
 
 func (h *ConsumerGroupHandler) ConsumeClaim(session sarama.ConsumerGroupSession, claim sarama.ConsumerGroupClaim) error {
