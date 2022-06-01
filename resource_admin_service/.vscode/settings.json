@@ -1,5 +1,3 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode",
-    "editor.fontSize": 16,
-    "editor.accessibilityPageSize": 12
+    "makefile.extensionOutputFolder": "./.vscode"
 }
