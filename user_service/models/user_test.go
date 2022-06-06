@@ -1,24 +1,25 @@
-package models
+package models_test
 
 import(
 	"os"
 	"testing"
 
+	"user_service/models"
 	"user_service/repository"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestCreateUserRecord(t *testing.T) {
-	var userResult User
+	var userResult models.User
 
 	db, err := repository.InitDB()
 	assert.NoError(t, err)
 
-	err = db.AutoMigrate(&User{})
+	_, err = db.Exec("")
 	assert.NoError(t, err)
 
-	user := User{
+	user := models.User{
 		Name: "TestName",
 		Email: "test@email.com",
 		Password: os.Getenv("passwordHash"),
@@ -38,7 +39,7 @@ func TestCreateUserRecord(t *testing.T) {
 func TestCheckPassword(t *testing.T) {
 	hash := os.Getenv("passwordHash")
 
-	user := User{
+	user := models.User{
 		Password: hash,
 	}
 
@@ -47,7 +48,7 @@ func TestCheckPassword(t *testing.T) {
 }
 
 func TestHashPassword(t *testing.T) {
-	user := User{
+	user := models.User{
 		Password: "secret",
 	}
 

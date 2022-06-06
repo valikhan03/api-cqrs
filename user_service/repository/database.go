@@ -1,15 +1,15 @@
 package repository
 
-import(
-	"gorm.io/gorm"
-	"gorm.io/driver/postgres"
+import (
+	"os"
+	"github.com/joho/godotenv"
+	"github.com/jmoiron/sqlx"
+	_ "github.com/jackc/pgx/stdlib"
 )
-
-func InitDB() (*gorm.DB, error){
-	db, err := gorm.Open(postgres.Open(""))
+func InitDB() (*sqlx.DB, error){
+	err := godotenv.Load()
 	if err != nil{
 		return nil, err
 	}
-
-	return db, nil
+	return sqlx.Connect("postgres", os.Getenv("DB_CONN_STR"))
 }

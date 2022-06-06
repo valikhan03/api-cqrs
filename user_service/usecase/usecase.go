@@ -14,8 +14,8 @@ type Repository interface{
 	GetUserData(email string) (*models.User, error)
 }
 
-func NewUseCase() {
-
+func NewUseCase(repository Repository) *UseCase{
+	return &UseCase{repository: repository}
 }
 
 func(uc *UseCase) NewUser(user models.User) error {
