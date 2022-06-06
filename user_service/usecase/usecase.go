@@ -1,6 +1,9 @@
 package usecase
 
 import(
+	"context"
+	"time"
+
 	"user_service/models"
 )
 
@@ -10,8 +13,8 @@ type UseCase struct{
 }
 
 type Repository interface{
-	CreateUser(user models.User) error
-	GetUserData(email string) (*models.User, error)
+	CreateUser(ctx context.Context, user models.User) error
+	GetUserData(ctx context.Context, email string) (*models.User, error)
 }
 
 func NewUseCase(repository Repository) *UseCase{
@@ -19,12 +22,19 @@ func NewUseCase(repository Repository) *UseCase{
 }
 
 func(uc *UseCase) NewUser(user models.User) error {
-	user.HashPassword()
-	return uc.repository.CreateUser(user)
+	err := user.HashPassword()
+	if err != nil{
+		return err
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), 3 * time.Second)
+	defer cancel()
+	return uc.repository.CreateUser(ctx, user)
 }
 
 func(uc *UseCase) LogIn(email, password string) (string, error) {
-	user, err := uc.repository.GetUserData(email)
+	ctx, cancel := context.WithTimeout(context.Background(), 3 * time.Second)
+	defer cancel()
+	user, err := uc.repository.GetUserData(ctx, email)
 	if err != nil{
 		return "", err
 	}

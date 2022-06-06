@@ -5,35 +5,18 @@ import(
 	"testing"
 
 	"user_service/models"
-	"user_service/repository"
 
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCreateUserRecord(t *testing.T) {
-	var userResult models.User
-
-	db, err := repository.InitDB()
-	assert.NoError(t, err)
-
-	_, err = db.Exec("")
-	assert.NoError(t, err)
-
+func TestHashPassword(t *testing.T) {
 	user := models.User{
-		Name: "TestName",
-		Email: "test@email.com",
-		Password: os.Getenv("passwordHash"),
+		Password: "secret",
 	}
-	
-	err = user.CreateRecord(db)
+
+	err := user.HashPassword()
 	assert.NoError(t, err)
-
-	db.Where("email=?", user.Email).Find(&userResult)
-
-	db.Unscoped().Delete(&user)
-
-	assert.Equal(t, "TestName", userResult.Name)
-	assert.Equal(t, "test@email.com", userResult.Email)
+	os.Setenv("passwordHash", user.Password)
 }
 
 func TestCheckPassword(t *testing.T) {
@@ -47,12 +30,3 @@ func TestCheckPassword(t *testing.T) {
 	assert.NoError(t, err)
 }
 
-func TestHashPassword(t *testing.T) {
-	user := models.User{
-		Password: "secret",
-	}
-
-	err := user.HashPassword()
-	assert.NoError(t, err)
-	os.Setenv("passwordHash", user.Password)
-}
