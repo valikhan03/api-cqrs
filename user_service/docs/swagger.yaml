@@ -1,0 +1,52 @@
+basePath: /api/v1
+definitions:
+  models.ErrorResponse:
+    properties:
+      error:
+        type: string
+      status_code:
+        type: integer
+    type: object
+host: localhost:8085
+info:
+  contact: {}
+  title: User Service
+  version: "1.0"
+paths:
+  /login:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: authorized
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Log in the user
+      tags:
+      - user-service
+  /register:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: created
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Register new user
+      tags:
+      - user-service
+swagger: "2.0"
