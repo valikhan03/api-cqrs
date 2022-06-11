@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"testing"
 	"time"
+	//"fmt"
 
 	"github.com/elastic/go-elasticsearch/v8"
 	"github.com/elastic/go-elasticsearch/v8/esapi"
@@ -48,7 +49,7 @@ func TestCreateResource(t *testing.T) {
 		timeout: 3 * time.Second,
 	}
 	newResource := Resource{
-		ID:        "test4",
+		ID:        "test1",
 		Title:     "test1-title",
 		Author:    "-",
 		Content:   "some-content",
@@ -59,7 +60,7 @@ func TestCreateResource(t *testing.T) {
 
 	req := esapi.GetRequest{
 		Index:      testIndex,
-		DocumentID: "test4",
+		DocumentID: "test1",
 	}
 
 	res, err := req.Do(context.Background(), esclient)
@@ -89,4 +90,51 @@ type GetResponseModel struct {
 	PrimaryTerm int      `json:"_primary_term"`
 	Found       bool     `json:"found"`
 	Source      Resource `json:"_source"`
+}
+
+func TestUpdateResource(t *testing.T) {
+	esclient, err := initTestESClient()
+	assert.NoError(t, err)
+
+	elastic := &Elastic{
+		client:  esclient,
+		index:   testIndex,
+		timeout: 3 * time.Second,
+	}
+
+	const id = "test1"
+
+	resourceToUpdate := ResourceData{
+		Title:     "updated title",
+		Author:    "-",
+		Content:   "some new updated content",
+		Tags:      []string{"test", "some-tag"},
+	}
+
+	err = elastic.UpdateResource(id, resourceToUpdate)
+	require.NoError(t, err)
+
+	req := esapi.GetRequest{
+		Index:      testIndex,
+		DocumentID: id,
+	}
+
+	res, err := req.Do(context.Background(), esclient)
+	require.NoError(t, err)
+
+	require.False(t, res.IsError())
+
+	response := map[string]interface{}{
+		"_source":make(map[string]interface{}),
+	}
+
+
+	err = json.NewDecoder(res.Body).Decode(&response)
+	require.NoError(t, err)
+
+	
+
+	require.True(t, response["found"].(bool))
+
+
 }

@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"bytes"
 	"context"
 	"encoding/json"
@@ -101,7 +102,7 @@ func (e *Elastic) CreateResource(resource Resource) error {
 	return nil
 }
 
-func (e *Elastic) UpdateResource(resource Resource) error {
+func (e *Elastic) UpdateResource(id string, resource ResourceData) error {
 	data, err := json.Marshal(resource)
 	if err != nil {
 
@@ -109,8 +110,8 @@ func (e *Elastic) UpdateResource(resource Resource) error {
 
 	req := esapi.UpdateRequest{
 		Index:      e.index,
-		DocumentID: resource.ID,
-		Body:       bytes.NewReader(data),
+		DocumentID: id,
+		Body:        bytes.NewReader([]byte(fmt.Sprintf(`{"doc":%s}`, string(data)))),
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), e.timeout)
 	defer cancel()

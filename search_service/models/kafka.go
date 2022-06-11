@@ -73,11 +73,18 @@ func (h *ConsumerGroupHandler) ConsumeClaim(session sarama.ConsumerGroupSession,
 			if err != nil{
 				h.logger.Printf("unable to create event: %v\n", err)
 			}
+		
 		case UpdateEvent:
-			err := h.elatic.UpdateResource(event.Resource)
+			err := h.elatic.UpdateResource(event.Resource.ID, ResourceData{
+				Title: event.Resource.Title,
+				Author: event.Resource.Author,
+				Content: event.Resource.Content,
+				Tags: event.Resource.Tags,
+			})
 			if err != nil{
 				h.logger.Printf("unable to update event: %v\n", err)
 			}
+		
 		case DeleteEvent:
 			err := h.elatic.DeleteResource(event.Resource.ID)
 			if err != nil{
