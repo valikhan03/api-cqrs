@@ -17,9 +17,8 @@ type UseCase struct {
 func NewUseCase(repository RepositoryInterface, eventChan chan *models.Event, logger *log.Logger) *UseCase {
 	return &UseCase{
 		repository: repository,
-		logger: logger,
-		eventChan: eventChan,
-
+		logger:     logger,
+		eventChan:  eventChan,
 	}
 }
 
@@ -35,7 +34,7 @@ func (uc *UseCase) CreateResource(newresource *models.NewResource) error {
 		Title:     newresource.Title,
 		Author:    newresource.Author,
 		Content:   newresource.Content,
-		CreatedAt: time.Now().UTC(),
+		CreatedAt: time.Now().Format(time.UnixDate),
 	}
 
 	err := uc.repository.CreateResource(&resource)
@@ -54,7 +53,7 @@ func (uc *UseCase) UpdateResource(resource *models.Resource) error {
 		return err
 	}
 	event := models.NewEvent("UPDATE", *resource)
-	
+
 	uc.eventChan <- event
 	return nil
 }
