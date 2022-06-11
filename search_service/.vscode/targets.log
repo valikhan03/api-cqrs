@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 30 14:23:41 2022
+# Make data base, printed on Sat Jun 11 12:35:10 2022
 
 # Variables
 
@@ -16,6 +16,8 @@ make: *** No rule to make target 'all'.  Stop.
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -25,7 +27,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-90929692-9856-498c-859c-7a8bb04d731b.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a2981c84-67a1-4d57-b8da-4bd66f800ae8.sock
 # environment
 LC_NAME = kk_KZ.UTF-8
 # environment
@@ -67,7 +69,7 @@ VSCODE_CODE_CACHE_PATH = /home/valikhan/.config/Code/CachedData/c3511e6c69bb3901
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.3KW7M1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.43U0N1
 # default
 .LOADED := 
 # default
@@ -107,7 +109,7 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 3470
+VSCODE_PID = 3405
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -115,7 +117,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/valikhan:@/tmp/.ICE-unix/2285,unix/valikhan:/tmp/.ICE-unix/2285
+SESSION_MANAGER = local/valikhan:@/tmp/.ICE-unix/2292,unix/valikhan:/tmp/.ICE-unix/2292
 # automatic
 *F = $(notdir $*)
 # environment
@@ -165,7 +167,7 @@ LC_TIME = kk_KZ.UTF-8
 # environment
 SNAP = /snap/code/97
 # environment
-INVOCATION_ID = 16130f5732844f67a436734f4e77cb8b
+INVOCATION_ID = 903fba295db84c199fe562d087bdb1b7
 # environment
 SNAP_REVISION = 97
 # environment
@@ -203,7 +205,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := gen-swagger
 # environment
-SYSTEMD_EXEC_PID = 2322
+SYSTEMD_EXEC_PID = 2320
 # environment
 DISPLAY = :0
 # environment
@@ -219,11 +221,11 @@ SNAP_DATA = /var/snap/code/97
 # environment
 SNAP_CONTEXT = mZz4FHmV2_T6cfD61dDRNGhkUvAK5jUUKgrBfKO26BZZSYII4okx
 # environment
-MANAGERPID = 2131
+MANAGERPID = 2126
 # environment
 LC_MEASUREMENT = kk_KZ.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3415
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3285
 # environment
 _ = /snap/code/97/usr/share/code/code
 # environment
@@ -233,7 +235,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/valikhan/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:36176
+JOURNAL_STREAM = 8:32583
 # environment
 GOMODCACHE = /home/valikhan/go/pkg/mod
 # environment
@@ -278,6 +280,7 @@ SNAP_COMMON = /var/snap/code/common
 SNAP_USER_DATA = /home/valikhan/snap/code/97
 # environment
 XDG_MENU_PREFIX = gnome-
+ 
 # environment
 GDMSESSION = ubuntu
 # environment
@@ -285,7 +288,8 @@ LC_IDENTIFICATION = kk_KZ.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=136/1024=13%, Rehash=0, Collisions=7/166=4%
+ 
+# Load=137/1024=13%, Rehash=0, Collisions=7/167=4%
 
 # Pattern-specific Variable Values
 
@@ -306,7 +310,6 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-05-25 15:33:40.011524122
 #  File has been updated.
 #  Successfully updated.
@@ -345,6 +348,6 @@ gen-swagger:
 # strcache performance: lookups = 24 / hit rate = 20%
 # hash-table stats:
 # Load=19/8192=0%, Rehash=0, Collisions=0/24=0%
-# Finished Make data base on Mon May 30 14:23:41 2022
+# Finished Make data base on Sat Jun 11 12:35:10 2022
 
  

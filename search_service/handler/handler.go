@@ -55,13 +55,7 @@ func (h *Handler) GetResourceByID(c *gin.Context) {
 // @Failure 404 {object} models.ErrorResponse
 // @Router /search [get]
 func (h *Handler) SearchResourcesByFilter(c *gin.Context) {
-	/*
-	var filter models.Filter
-	err := c.BindJSON(&filter)
-	if err != nil{
-		return
-	}
-	*/
+
 
 	filters := make(map[string]interface{})
 	_, ok := c.GetQuery("title")
