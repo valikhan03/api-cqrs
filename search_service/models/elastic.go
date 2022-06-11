@@ -9,7 +9,6 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/joho/godotenv"
 	"github.com/elastic/go-elasticsearch/v8"
 	"github.com/elastic/go-elasticsearch/v8/esapi"
 )
@@ -22,33 +21,27 @@ type Elastic struct {
 
 func NewESClient(addrs []string) (*elasticsearch.Client, error) {
 	return elasticsearch.NewClient(elasticsearch.Config{
-		Addresses: addrs,
+		Addresses:    addrs,
 		RetryOnError: retryOnError,
 	})
 }
 
-func NewElastic(addr []string, index string, timeout int64) *Elastic{
-	err := godotenv.Load()
-	if err != nil{
-		log.Fatal(err)
-	}
+func NewElastic(addr []string, index string, timeout int64) *Elastic {
 	esclient, err := NewESClient(addr)
-	if err != nil{
+	if err != nil {
 		log.Fatal(err)
 	}
 
-	
-	if err != nil{
+	if err != nil {
 		log.Fatal(err)
 	}
 
 	return &Elastic{
-		client: esclient,
-		index: index,
+		client:  esclient,
+		index:   index,
 		timeout: time.Duration(timeout) * time.Second,
 	}
 }
-
 
 func retryOnError(req *http.Request, err error) bool {
 
@@ -92,16 +85,16 @@ func (e *Elastic) CreateResource(resource Resource) error {
 	defer cancel()
 
 	res, err := req.Do(ctx, e.client)
-	if err != nil{
+	if err != nil {
 		return err
 	}
 	defer res.Body.Close()
 
-	if res.StatusCode == 409{
+	if res.StatusCode == 409 {
 		return errors.New("multiple users are trying to update the same version of the document at the same time")
 	}
 
-	if res.IsError(){
+	if res.IsError() {
 		return errors.New(res.String())
 	}
 
@@ -110,29 +103,29 @@ func (e *Elastic) CreateResource(resource Resource) error {
 
 func (e *Elastic) UpdateResource(resource Resource) error {
 	data, err := json.Marshal(resource)
-	if err != nil{
+	if err != nil {
 
 	}
 
 	req := esapi.UpdateRequest{
-		Index: e.index,
+		Index:      e.index,
 		DocumentID: resource.ID,
-		Body: bytes.NewReader(data),
+		Body:       bytes.NewReader(data),
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), e.timeout)
 	defer cancel()
 
 	res, err := req.Do(ctx, e.client)
-	if err != nil{
+	if err != nil {
 		return err
 	}
 	defer res.Body.Close()
 
-	if res.StatusCode == 404{
+	if res.StatusCode == 404 {
 		return errors.New("document not found")
 	}
 
-	if res.IsError(){
+	if res.IsError() {
 		return errors.New(res.String())
 	}
 
@@ -141,7 +134,7 @@ func (e *Elastic) UpdateResource(resource Resource) error {
 
 func (e *Elastic) DeleteResource(id string) error {
 	req := esapi.DeleteRequest{
-		Index: e.index,
+		Index:      e.index,
 		DocumentID: id,
 	}
 
@@ -149,15 +142,15 @@ func (e *Elastic) DeleteResource(id string) error {
 	defer cancel()
 
 	res, err := req.Do(ctx, e.client)
-	if err != nil{
+	if err != nil {
 		return err
 	}
 
-	if res.StatusCode == 404{
+	if res.StatusCode == 404 {
 		return err
 	}
 
-	if res.IsError(){
+	if res.IsError() {
 		return errors.New(res.String())
 	}
 
